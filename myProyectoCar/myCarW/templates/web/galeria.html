@@ -1,0 +1,60 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/galeria.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script>
+    $(document).ready(function(){
+    $('.slider').bxSlider();
+    });
+</script>
+
+{% endblock estilos %}
+
+{% block contenido %}
+
+ <div id="contenido">
+    
+      <div id="section">
+  
+        <div id="titulo1"><h1>Vehiculo en servicio</h1></div>
+
+        <div class="galeria1">
+          <div class="slider">
+          {% for item in gale %}
+              <div>
+                  <li><img src="{{item.slider1.url}}"></li>
+              </div>
+          {% endfor %}
+          </div>
+      </div>
+
+      <div id="titulo2"><h1>Maquinas de servicio</h1></div>
+    
+      <div class=galeria2>
+          <div class="slider">
+          {% for item in gale %}
+              <div>
+                  <li><img src="{{item.slider2.url}}"></li>
+              </div>
+          {% endfor %}
+          </div>
+      </div>
+
+
+      </div>
+    
+    </div>
+
+
+{% endblock contenido %}
+
+
+   
+
+
+
+

@@ -1,0 +1,46 @@
+    {% extends "web/base.html" %}
+    {% load static %}
+    {% block estilos %}
+    <link rel="stylesheet" href="{% static 'css/la_empresa.css' %}">
+    {% endblock estilos %}
+    
+    {% block contenido %}
+
+    <div id="contenido">
+    
+      <div id="section">
+
+       <div id="titulo">
+         <h1>Tu lavado de auto</h1>
+       </div>
+
+       <div id="parrafo">
+         <h1>Misión</h1>
+         {% for item in emp %}
+
+         <p> {{item.mision}}</p>
+         
+         {% endfor %}
+         
+       </div>
+
+       <div id="parrafo2">
+        <h1>Visión</h1>
+        {% for item in emp %}
+        
+        <p> {{item.vision}}</p>
+        
+        {% endfor %}
+         
+       </div>
+                 
+      </div>
+    
+    </div>
+    
+    {% endblock contenido %}
+    
+
+
+
+

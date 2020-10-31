@@ -1,0 +1,45 @@
+    {% extends "web/base.html" %}
+    {% load static %}
+    {% block estilos %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    {% endblock estilos %}
+    
+
+    {% block contenido %}
+
+    <div id="contenido">
+    
+      <div id="section">
+
+        
+          <h1 id="titulo">Ingreso de usuarios</h1>
+         <h1 id="subtitulo">Usted debe completar los siguientes campos para ingresar</h1>
+        
+        
+        <div class="registro"> 
+             <h1>Ingreso de usuario</h1>
+           <form action="" method="POST">
+           {% csrf_token %}
+          <input class="controls" type="text" name="txtusuario" id="usuario" placeholder="nombre de usuario">
+          <input class="controls" type="password" name="txtclave" id="clave" placeholder="Ingrese su clave" >
+          <input class="botons" type="submit" value="Ingresar">
+        </form>
+        <div class="mensaje"> <h1>{{msg}}</h1> </div>
+          
+          
+
+        </div>
+
+      </div>
+    
+    </div>
+
+
+    
+    {% endblock contenido %}
+
+    
+
+
+    
+

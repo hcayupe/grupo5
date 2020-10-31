@@ -1,0 +1,69 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/admi_insumo.css' %}">
+{% endblock estilos %}
+
+{% block contenido %}
+
+<div id="contenido">
+  <script>
+     function eliminar(insumo) {
+       var msg;
+       var opcion = confirm("Esta seguro con eliminar el insumo " + insumo + " ?")
+       if (opcion == true) {
+         location.href= '/eliminar/' + insumo + '/';
+       }else{
+         msg="No";
+       }
+     }
+     function actualizar(insumo) {
+       location.href='/modificar/' + insumo + '/';
+       
+     }
+  </script>
+    
+      <div id="section">
+
+        
+          <h1 id="titulo">Administracion de insumos</h1>
+         <h1 id="subtitulo">Seleccione una opacion para los insumos presentados</h1>
+        <div class="listado">
+          
+          <table id="tabla" border=1> 
+            <tr>
+                 <td><h1>Nombre</h1></td>
+                 <td><h1>Precio</h1></td>
+                 <td><h1>Descripcion</h1></td>
+                 <td><h1>Stock</h1></td>
+                 <td><h1>Administrar</h1></td>
+            </tr>
+            {% for item in insumos %}
+            <tr>
+                 <td><h2>{{item.nombre}}</h2></td>
+                 <td><h2>{{item.precio}}</h2></td>
+                 <td><h3>{{item.descripcion}}</h3></td>
+                 <td><h2>{{item.stock}}</h2></td>
+                 <td>
+                  <button class="botons" onclick="eliminar('{{item.nombre}}')">Eliminar</button>
+                  <button class="botons" onclick="actualizar('{{item.nombre}}')">Actualizar</button>
+                 </td>
+            </tr>
+            {% endfor %}
+          </table>
+          
+        </div>
+        <div> <h1>{{msg}}</h1> </div>
+      </div>
+    
+    </div>
+    
+{% endblock contenido %}
+     
+  
+
+
+    
+
+
+
